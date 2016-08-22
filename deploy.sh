@@ -21,7 +21,7 @@ cd ~/resume/
 
 # Save some useful information
 export SHA=`git rev-parse --verify HEAD`
-git checkout -b gh-pages origin/gh-pages
+git checkout -b gh-pages
 cd ..
 # Run our compile script
 echo "compiling..."
@@ -38,4 +38,4 @@ echo "git commit"
 git commit -m "Deploy $SHA"
 
 # Now that we're all set up, we can push.
-git push -f -q https://ShikherVerma:$GH_TOKEN@github.com/AUV-IITK/auv.git gh-pages
+git push -f -q https://ShikherVerma:$GH_TOKEN@github.com/ShikherVerma/resume.git gh-pages
