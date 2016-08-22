@@ -21,19 +21,20 @@ cd ~/resume/
 
 # Save some useful information
 export SHA=`git rev-parse --verify HEAD`
-git checkout -b gh-pages
-cd ..
+git checkout -b gh-pages origin/gh-pages
+git rm -r --cached .
+
 # Run our compile script
 echo "compiling..."
 doCompile
+
 # Now let's go have some fun with the cloned repo
-cd ~/resume/
 echo "git config"
 git config user.name "Shikher Verma"
 git config user.email "root@shikherverma.com"
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add resume.pdf
+git add resume.pdf -f
 echo "git commit"
 git commit -m "Deploy $SHA"
 
