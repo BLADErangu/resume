@@ -1,39 +1,33 @@
 #!/bin/bash
 #
-# This script is used by travis to deploy generated docs
+# This script is used by travis to deploy generated files
 #
 
-function doCompile {
-  pdflatex -halt-on-error resume.tex
-}
+# Config for this script:
+export GH_USER="ShikherVerma"
+export GH_EMAIL="root@shikherverma.com"
+export GH_REPO="resume"
 
-# Pull requests and commits to other branches shouldn't try to deploy, just build to verify
+# Pull requests and commits to other branches shouldn't try to deploy
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then
-  echo "Skipping deploy; just doing a build."
-  doCompile
+  echo "Skipping deploy."
   exit 0
 fi
 
 # Save some useful information
 export SHA=`git rev-parse --verify HEAD`
 
-# Run our compile script
-echo "compiling..."
-doCompile
-
 # Now let's go have some fun with the cloned repo
 echo "git config"
-git config --global user.name "Shikher Verma"
-git config --global user.email "root@shikherverma.com"
-git clone "https://github.com/ShikherVerma/resume.git"
-cd resume/
+git config --global user.name $GH_USER
+git config --global user.email $GH_EMAIL
+git clone "https://github.com/$GH_USER/$GH_REPO.git"
+cd $GH_REPO
 git checkout -b gh-pages origin/gh-pages
-cp -f ../resume.pdf ./
-# Commit the "changes", i.e. the new version.
-# The delta will show diffs between new and old versions.
-git add resume.pdf -f
+cp -f ../*.pdf ./ # copy and replace the compiled pdf files
+git add *.pdf -f
 echo "git commit"
 git commit -m "Deploy $SHA"
 
 # Now that we're all set up, we can push.
-git push -f -q https://ShikherVerma:$GH_TOKEN@github.com/ShikherVerma/resume.git gh-pages
+git push -f -q https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$GH_REPO.git gh-pages
