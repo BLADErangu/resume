@@ -4,8 +4,8 @@
 #
 
 # Config for this script:
-export GH_USER="ShikherVerma"
-export GH_EMAIL="root@shikherverma.com"
+export GH_USER="thr0w0"
+export GH_EMAIL="8jbt9j+uopwy9fengjs@sharklasers.com"
 export GH_REPO="resume"
 
 # Pull requests and commits to other branches shouldn't try to deploy

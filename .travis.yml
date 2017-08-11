@@ -6,10 +6,6 @@ language:
 cache:
   - apt
 
-env:
-  matrix:
-    secure: NZQayE+4JieIuBWE/dXoJBDK7ySlHSsyeq2s25IXzVkUoLduq4W6z/9GNEMP+Q6I1JwkLKMq9xB2I8YuGEA4ruWSVYpURziNux1etiWzmIOvSVTvSI8E8mjVtxA+heJAizACz8ZErYhYWAGjjiYepUVpGziN2mB88hwfiLsutPXRr1UyAqxAHYM7o9xCHdexzHDs5DvH7pP9eFkFDhorq1U7warSIjOFae89xtop1cAd5mGTMYX7DeIGiEXlZtmWH7eGfhJoOejTD9rlIvY3Pa18XvPbxADTUN9fqGk2OejSbcIQwnbP5jEbMPkNNCZvKhh7W4BrwDRyi5XL/QQkJt6UWdJRLb51ssM+MdOckt4zwuoTVmHRYqc43r1CyM7K/OvfEWv9LXsqwqocO8eRMvR1dJ4IArj+NjTCJ4qmNABEze2mmO6oMSUEwxLHgiph+BopcVV1ivL+rRHLg9LEuhB+rgQQtnrPlrP+2jHEJpRlXvdOk8gpWLcvLCenPC8bwTgUJMOdgRY9OtOrTVbUwG6uQPe5mdPv7h7V4Ah4J/SaDLJ9LlR91HPK7nnn6ErIoMGRoCJOh8/CmdasuvRgO548R1US87GZRNTnkrGqeiQ7/Zaac2g+Hz4x+ldC7dw15ef/D7pVeXQVi8vDttwR/bpKkLzFswz8Wv56j2OUtIo=
-
 install:
 - sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng
 
